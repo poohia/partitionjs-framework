@@ -144,7 +144,7 @@ module.exports = function() {
 
         userModel.create({
             'local.email': 'toto@gmail.com',
-            'local.name': 'jojo',
+            'local.name': 'toto',
             'local.password': hash.hashUserPassword("Password1"),
             'local.sexe': 'man',
             'local.role': hash.generateHash("USER")
@@ -156,7 +156,7 @@ module.exports = function() {
         });
         userModel.create({
             'local.email': 'toto2@gmail.com',
-            'local.name': 'toto',
+            'local.name': 'toto2',
             'local.password': hash.hashUserPassword("Password1"),
             'local.sexe': 'man',
             'local.role': hash.generateHash("USER")
@@ -168,7 +168,7 @@ module.exports = function() {
         });
         userModel.create({
             'local.email': 'toto3@gmail.com',
-            'local.name': 'toto',
+            'local.name': 'toto3',
             'local.password': hash.hashUserPassword("Password1"),
             'local.sexe': 'man',
             'local.role': hash.generateHash("USER")
@@ -180,7 +180,7 @@ module.exports = function() {
         });
         userModel.create({
             'local.email': 'toto4@gmail.com',
-            'local.name': 'toto',
+            'local.name': 'toto4',
             'local.password': hash.hashUserPassword("Password1"),
             'local.sexe': 'woman',
             'local.role': hash.generateHash("USER")
@@ -190,6 +190,7 @@ module.exports = function() {
             console.log(chalk.bgGreen.bold("User :", user, " \ncreated!"));
 
         });
+        console.log("Password for all : 'Password1'");
     }
 
     function userExist(email, callback) {
