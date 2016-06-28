@@ -3,5 +3,5 @@
 /mongod
 /node_modules
 /npm-debug.log
-/bundles
+/bundles/*
 /partitionjs.complete.js
