@@ -1,0 +1,26 @@
+{% extends "base/base.twig" %}
+
+{% block body %}
+<h1> Partitionjs Framework</h1>
+
+{% if flashMessage|length > 0 %}<div class="notification"> {% for message in flashMessage %} <p> {{message}}  </p> {% endfor %} </div>{% endif %}
+
+<div class="col signin">
+    <h3>Sign In</h3>
+    {% include "forms/signin.twig" %}
+</div>
+<div class="col signup">
+    <h3>Sign Up</h3>
+    {% include "forms/signup.twig" %}
+</div>
+
+
+<div class="col">
+</p><sup>1 : Minimum 6 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number.  </sup>  
+</div>
+{% endblock body %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="js/index.module.js" type="text/javascript" ></script> 
+{% endblock javascript %}

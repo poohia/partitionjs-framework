@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Passportjs Framework{% endblock title %}</title>
+    <link href="/css/style.css" type="text/css" rel="stylesheet" >
+
+
+    {% block stylesheets %}
+    {% endblock stylesheets %}
+    
+    <link rel="icon" href="/images/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" type="text/javascript"></script>
+  </head>
+  <body class="container">
+
+    {% block header %}
+    {% endblock %}
+
+
+   <main>
+        {% block body %}
+        {% endblock body %}
+   </main>
+
+   {%block footer %}
+   {% endblock footer %}
+   
+   <script src="common_modules/validate.module.js" type="text/javascript"></script>
+   <script src="forms/validForm.module.js" type="text/javascript" ></script>
+   <script>
+     /* Never use '//' for write your comment 
+     
+     /**** Init of modules *******/
+     
+      validForm.init();
+      
+     /***************************/
+     
+     
+   </script>
+   {%  block javascript %}
+   {% endblock javascript %}
+   
+  </body>
+</html>

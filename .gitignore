@@ -1,0 +1,7 @@
+/data 
+/views/css
+/mongod
+/node_modules
+/npm-debug.log
+/bundles
+/partitionjs.complete.js

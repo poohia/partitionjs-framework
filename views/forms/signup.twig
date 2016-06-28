@@ -1,0 +1,29 @@
+<form id="form_signup" action="/signup" method="POST" >
+    
+    <p>
+        <label for="signup_email" autofocus>Email* : </label>
+        <input id="signup_email" name="email" type="text" />
+    </p>
+    <p>
+        <label for="signup_password">Password* <sup>1</sup> : </label>
+        <input id="signup_password" name="password" type="password" />
+    </p>
+    <p>
+        <label for="password_again">Password again* <sup>1</sup> : </label>
+        <input id="password_again" type="password" />
+    </p>
+    <p>
+        <label for="name" >Pseudo* : </label>
+        <input type="text" id="name" name="name" autocomplete="off"/>
+        <button id="testPseudo">Test if exist</button>
+    </p>
+    <p>
+        <span>
+        <label >Sexe* : </label>
+        &nbsp;&nbsp; <span> <label for="man">Man</label> <input type="radio" id="man" name="sexe" value="man" checked />  </span>
+        &nbsp;&nbsp; <span> <label for="woman">Woman</label> <input type="radio" id="woman" name="sexe" value="woman"  />  </span>
+        </span>
+    </p>
+    <input type="hidden" name="token" />
+    <input type="submit" value="Submit" />
+</form>

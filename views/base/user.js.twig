@@ -1,0 +1,8 @@
+{% if user %}
+<script>
+_user = new Object() ;
+ _user.name = '{{user.local.name}}';
+ _user.sexe = '{{user.local.sexe}}';
+ _user.avatar = '{{user.local.avatar}}';
+</script>
+{% endif %}
