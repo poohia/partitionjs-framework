@@ -63,8 +63,8 @@ module.exports = function(partitionjs){
     function listen()
     {
                 
-        if (partitionjs.mode === 'dev') {
-            console.log("Dev mode");
+        if (app.get('env') === 'development') {
+            console.log("Development mode");
             _port = 8081;
         }
         _server.listen(_port, function(){
@@ -74,6 +74,7 @@ module.exports = function(partitionjs){
     
     function config()
     {
+        app.set('env', partitionjs.mode);
        // Set the views pathname to the views folder
         app.set('views', path.join(__dirname, '../views'));
         // Set the view engine to use Twig
@@ -82,10 +83,9 @@ module.exports = function(partitionjs){
             strict_variables: false
         });
         app.set('view options', { pretty: false });
-
        
        
-        if (partitionjs.mode === 'dev') { 
+        if (app.get('env') === 'development') { 
             app.use(logger('dev')); 
             app.use(error());
          }

@@ -19,8 +19,11 @@ program.parse(process.argv);
 
 var partitionjs = {} ;
 // Get mode ( node app mod=dev)
-if(cmdValue)
+if(cmdValue && cmdValue.split("=")[1] === "development")
     partitionjs.mode = cmdValue.split("=")[1];
+else
+    partitionjs.mode = "production";
+    
 var dirModules = __dirname + "/modules/";
 
 // SERVER
