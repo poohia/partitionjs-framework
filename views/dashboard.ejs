@@ -1,14 +1,17 @@
-{% extends "base/base.twig" %}
-
-
-{% block body %}
-    <span> <h1>Hello {{ user.local.name }}</h1> {% include "forms/logout.twig" %} </span>
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include base/head %>
+  </head>
+  <body class="container">
+   <main>
+<span> <h1>Hello <%= user.local.name %></h1> <% include forms/logout %> </span>
 
     <div class="col infos-user">
-        <img src="{{user.local.avatar}}" alt="avatar"  />
-        <p>Email : {{ user.local.email }}</p>
-        <p>Pseudo : {{user.local.name }}</p>
-        <p>Sexe : {{user.local.sexe}}</p>
+        <img src="<%= user.local.avatar%>" alt="avatar"  />
+        <p>Email : <%= user.local.email %></p>
+        <p>Pseudo : <%=user.local.name %></p>
+        <p>Sexe :<%= user.local.sexe%></p>
     </div>
     <div class="col chat-partition"> 
         <div class="chat" id="chat">
@@ -22,13 +25,9 @@
         </div>
     </div>
 
-{% endblock body %}
-
-
-
-{% block javascript %}
-    {{ parent() }}
-    {% include "base/user.js.twig" %}
+    <% include base/user.js.ejs %>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/chat.module.js" type="text/javascript" ></script>
-{% endblock javascript %}
+
+  </body>
+</html>

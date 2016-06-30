@@ -12,7 +12,7 @@ var express = require('express'),
     logger = require('express-log'),
     error = require('express-error-handler');
 var http = require('http');
-
+var minifyHTML = require('express-minify-html');
 //---------------------------------------------------------------------------------------------/
 
 //--------------------------- DEPENDENCYS -------------------------------------------------------/
@@ -78,13 +78,25 @@ module.exports = function(partitionjs){
        // Set the views pathname to the views folder
         app.set('views', path.join(__dirname, '../views'));
         // Set the view engine to use Twig
-        app.set('view engine', 'twig');
+        app.set('view engine', 'ejs');
         app.set("twig options", {
             strict_variables: false
         });
         app.set('view options', { pretty: false });
        
-       
+        if (app.get('env') === 'production') {
+            app.use(minifyHTML({
+                override: true,
+                htmlMinifier: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    removeAttributeQuotes: true,
+                    removeEmptyAttributes: true,
+                    minifyJS: false
+                }
+            }));
+        }
         if (app.get('env') === 'development') { 
             app.use(logger('dev')); 
             app.use(error());
