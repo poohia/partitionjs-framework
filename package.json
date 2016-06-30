@@ -23,6 +23,7 @@
     "express-error-handler": "^1.1.0",
     "express-favicon": "^1.0.1",
     "express-log": "^1.0.1",
+    "express-minify-html": "^0.4.1",
     "express-reverse": "^0.3.2",
     "express-session": "^1.13.0",
     "fs": "0.0.2",

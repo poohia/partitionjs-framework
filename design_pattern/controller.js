@@ -10,18 +10,9 @@ module.exports = function(app){
 	
 	function f404(req, res)
 	{
-        res.status(404).render('404.twig', {'url' : req.url},function(err, html){
-        	minifyHtml(err, html, res);
-        });
+        res.status(404).render('404', {'url' : req.url});
 	}
 	
-
-	
-	function minifyHtml(err, html, res)
-	{
-		html = html.replace(/\n/g, '').replace(/>\s*</g, '><');
-		res.send(html);
-	}
 	
 	
 	return {
