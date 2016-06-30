@@ -59,7 +59,7 @@ var validator = function(){
 }();
 
 
-// Compatib with expressjs
+// Compatible with expressjs
 try{
 	module.exports  = validator;}
 catch(e){

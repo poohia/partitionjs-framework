@@ -14,7 +14,7 @@ var response = require("./../../modules/response")();
 var User = require('./../../models/user');
 //----------------------------------------------------------------------------------------------/
 
-// For use this API, req.body need to Json  value
+
 
 module.exports = function(app) {
 
