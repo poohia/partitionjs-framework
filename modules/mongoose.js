@@ -13,16 +13,19 @@ module.exports = function(partitionjs) {
 
 
    var url = 'mongodb://localhost:27017/';
-    var defaultDatabase = 'partitionjs';
+   var defaultDatabase = 'partitionjs';
+    
     // Connect to the MongoDB database then load the users and chatRooms collections
    function connect(db) {
+       
        if(typeof db === 'undefined')
             db = defaultDatabase;
+            
        var connection =  mongoose.connect('mongodb://localhost/' + db);
-         var listenner = mongoose.connection;
-		listenner.on('error', console.error.bind(console, 'connection error:'));
-		/*listenner.once('open', console.log("connected to bdd ! "));*/
-		return connection ;
+       var listenner = mongoose.connection;
+	   listenner.on('error', console.error.bind(console, 'connection error:'));
+	   return connection ;
+	   
     }
 
     return {

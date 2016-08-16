@@ -89,7 +89,16 @@ module.exports = function(passport) {
                 // save the user
                 newUser.save(function(err) {
                     if (err)
-                        throw err;
+                        {
+                            switch(err.code)
+                            {
+                                case 11000 :
+                                    return done(null, false, req.flash('message', 'Error 13011 #A duplicate .'));
+                                    break;
+                                default :
+                                    return done(null, false, req.flash('message', 'Error 13010 #Somethink broken'));
+                            }
+                        }
                     return done(null, newUser);
                 });
             }

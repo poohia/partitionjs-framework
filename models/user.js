@@ -15,7 +15,7 @@ var userSchema = mongoose.Schema({
     local            : {
         email        : String,
         password     : String,
-        name 		 : String,
+        name 		 : {type :String,  unique : true},
         role         : String,
         avatar       : String,
         sexe         : {

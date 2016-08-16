@@ -7,6 +7,7 @@
 
 //-------------------------- DEPENDENCYS ------------------------------/
 var program = require('commander');
+var dirModules = __dirname + "/modules/";
 var cmdValue = null;
 //---------------------------------------------------------------------/
 
@@ -20,11 +21,11 @@ program.parse(process.argv);
 var partitionjs = {} ;
 // Get mode ( node app mod=dev)
 if(cmdValue && cmdValue.split("=")[1] === "development")
-    partitionjs.mode = cmdValue.split("=")[1];
+    partitionjs.mode = "development";
 else
     partitionjs.mode = "production";
     
-var dirModules = __dirname + "/modules/";
+
 
 // SERVER
 partitionjs.server = require(dirModules + 'server')(partitionjs);

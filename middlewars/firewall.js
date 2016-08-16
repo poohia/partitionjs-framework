@@ -31,24 +31,25 @@ var User            = require('./../models/user');
 var module_firewall = function(){
 	'use strict';
  
-	var anonyme = { "name" :  hash.generateHash("ANONYME"),   "homeUrl" : "/" } ;
-	var user    = { "name" :    hash.generateHash('USER'),    "homeUrl" : "/dashboard" } ;
-	var admin   = { "name" :    hash.generateHash("ADMIN"),   "homeUrl" : "/admin" } ;
+	var anonymous  = { "name" :  hash.generateHash("ANONYMOUS"),   "homeUrl" : "/" } ;
+	var user       = { "name" :    hash.generateHash('USER'),    "homeUrl" : "/dashboard" } ;
+	var admin      = { "name" :    hash.generateHash("ADMIN"),   "homeUrl" : "/admin" } ;
 
 	// list of roles
-	var roles = [anonyme, user, admin] ; 
+	var roles = [anonymous, user, admin] ; 
 
 	var rules = 	
 	{
 		"parfeu":[
 		 // For add rule, put to begin into this json
 		 // {"url": {{ RegEx url }}, "role" : [ {"item" : role1}, {"item" : role2} ] }
-			{"url": "^/api/*", "role" : [ {"item" : anonyme}, {"item" : user},{"item" : admin} ] },
-		 	{"url":"^/signup/", "role" : [ {"item": anonyme}, ] },
-		    {"url":"^/login/", "role" : [ {"item" : anonyme}, ] },
+			{"url": "^/api/*", "role" : [ {"item" : anonymous}, {"item" : user},{"item" : admin} ] },
+		 	{"url":"^/signup/", "role" : [ {"item": anonymous}, ] },
+		    {"url":"^/login/", "role" : [ {"item" : anonymous}, ] },
 		    {"url":"^/dashboard", "role": [ {"item" : user}, ] },
 		    {"url":"^/logout", "role": [ {"item" : user}, ] },
-		    {"url":"^/", "role": [ {"item" : anonyme}] },
+		    {"url":"^/", "role": [ {"item" : anonymous}] },
+		    
 		]
 	};
      
@@ -64,7 +65,7 @@ var module_firewall = function(){
      				roleExist = true;
      			}
      		}
-     	if(roleExist) return currRole  ; else return anonyme.name ;
+     	if(roleExist) return currRole  ; else return anonymous.name ;
      }
      function isExist(role)
      {
@@ -151,7 +152,7 @@ var module_firewall = function(){
 	 	    	function(callback)
 	 	    	{
 	 	    		// test curr user than the databases
-	 	    		if(req.user.local.role !== anonyme.name)
+	 	    		if(req.user.local.role !== anonymous.name)
 		 	    	{
 		 	           User.findOne({ 'local.email' :  req.user.local.email }, function(err, user) {
 				     		if(err || !user )

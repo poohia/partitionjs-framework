@@ -7,8 +7,6 @@
 //--------------------------- DEPENDENCYS -------------------------------------------------------//
 
 var program = require('commander');
-var chromecastjs = require('chromecast-js');
-var fs = require('fs');
 
 var path = require('path'),
     walk = require('walk');
@@ -16,7 +14,6 @@ var path = require('path'),
 var dirModules = __dirname + "/console/";
 var modules = new Array();
 
-var app = {};
 var cmdValue = null;
 
 //-----------------------------------------------------------------------------------------------//

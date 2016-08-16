@@ -22,7 +22,7 @@ module.exports = function(app){
 	
 	function dashboard(req, res)
 	{
-		res.render('dashboard',{'user' : req.user})
+		res.render('dashboard',{'user' : req.user});
 	}
 	
 	function f404(req, res)

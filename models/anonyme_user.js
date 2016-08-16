@@ -23,7 +23,7 @@ module.exports = function(app){
 		{
 			'email' : "anonyme", 
 			'password' : "",
-			'role'    : hash.generateHash('ANONYME')
+			'role'    : hash.generateHash('ANONYMOUS')
 		},
 		
 	}

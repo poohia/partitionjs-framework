@@ -26,7 +26,7 @@ module.exports = function (partitionjs) {
     function listen()
     {
         //---------------------- Routes ------------------------------------/
-            //io.of('/yourRoute').on('connection',function(data){});
+            //io.of('/yourRoute').on('connection',function(socket){});
         
             io.of("/chat").on("connection", function(socket){
                  socket.on('joint room', function(data) {
