@@ -25,7 +25,8 @@ if(cmdValue && cmdValue.split("=")[1] === "development")
 else
     partitionjs.mode = "production";
     
-
+// SET GLOBAL VARIABLE
+GLOBAL.__partitionjs = partitionjs; // now you can use in project __partitionjs
 
 // SERVER
 partitionjs.server = require(dirModules + 'server')(partitionjs);
@@ -39,5 +40,8 @@ partitionjs.db.connect();
 // SOCKET
 partitionjs.socket = require(dirModules + 'socket')(partitionjs);
 partitionjs.socket.create();
+
+// PROJECT UTILITY
+require(dirModules + 'project_utility')(partitionjs);
 
 module.exports = partitionjs;
