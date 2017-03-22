@@ -12,7 +12,7 @@ module.exports = function(partitionjs) {
     'use strict';
 
 
-   var url = 'mongodb://192.168.99.100:27017/';
+   var url = 'mongodb://localhost:27017/';
    var defaultDatabase = 'partitionjs';
     
     // Connect to the MongoDB database then load the users and chatRooms collections
