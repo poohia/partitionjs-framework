@@ -26,7 +26,7 @@ else
     partitionjs.mode = "production";
     
 // SET GLOBAL VARIABLE
-GLOBAL.__partitionjs = partitionjs; // now you can use in project __partitionjs
+global.__partitionjs = partitionjs; // now you can use in project __partitionjs
 
 // SERVER
 partitionjs.server = require(dirModules + 'server')(partitionjs);
